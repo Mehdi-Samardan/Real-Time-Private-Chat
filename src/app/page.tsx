@@ -13,7 +13,8 @@ export default function Home() {
   const generateRandomUsername = () => {
     const randomAnimal = Animals[Math.floor(Math.random() * Animals.length)];
     const randomID = nanoid(4);
-    return `Unknown-${randomAnimal}-${randomID}`;
+    const randomAdjective = ["Swift", "Clever", "Brave", "Mighty", "Gentle", "Fierce", "Loyal", "Wise", "Nimble", "Bold"][Math.floor(Math.random() * 10)];
+    return `${randomAdjective}-${randomAnimal}-${randomID}`;
   }
 
   const [username, setUsername] = useState("Mehdi Samardan");
