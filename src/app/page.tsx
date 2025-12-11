@@ -4,11 +4,13 @@ import { useMutation } from "@tanstack/react-query";
 import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
 import { Client } from "./lib/client";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const Storage_key = "private-chat-username";
 
   const [username, setUsername] = useState("Mehdi Samardan");
+  const router = useRouter();
 
   useEffect(() => {
     const Animals = [
@@ -63,7 +65,12 @@ export default function Home() {
   const { mutate: createRoom } = useMutation({
     mutationFn: async () => {
       const res = await Client.room.create.post();
-      return res;
+
+      if (res.status === 200) {
+        router.push(`/room/${res.data?.roomId}`);
+      } else {
+        alert("Failed to create room");
+      }
     },
   });
 
