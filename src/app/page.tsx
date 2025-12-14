@@ -82,7 +82,7 @@ export default function Home() {
             Private Chat
           </h1>
           <p className="text-sm text-zinc-500">
-            Welcome to your secure private, <br /> self-destructing chat room.
+            Welcome to your secure private, <br /> self-destructing chat rooms.
           </p>
         </div>
         <div className="border border-zinc-800 bg-zinc-900/50 p-6 backdrop-blur-md">
