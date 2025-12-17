@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const formatTimeRamaining = (seconds: number) => {
   const mins = Math.floor(seconds / 60);
@@ -15,8 +15,11 @@ const Page = () => {
   const params = useParams();
   const { roomdId } = params as { roomdId: string };
 
+  const [inputMessage, setInputMessage] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const [showCopied, setShowCopied] = useState("COPY");
-  const [timeRamaining, setTimeRemaining] = useState<number | null>(20);
+  const [timeRamaining, setTimeRemaining] = useState<number | null>(600);
 
   const copyToClipboard = () => {
     const url = new URL(window.location.href);
@@ -49,7 +52,7 @@ const Page = () => {
           <div className="flex items-center gap-2">
             <span className="text-xs uppercase text-zinc-500">
               {" "}
-              Zelf-Destruct
+              Time Remaining :
             </span>
             <span
               className={`text-sm font-bold flex items-center gap-2 ${
@@ -69,6 +72,38 @@ const Page = () => {
           Destroy Room
         </button>
       </header>
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin"></div>
+
+      {/* Messages Container */}
+      <div className="p-4 border-t border-zinc-800 bg-zinc-900/30">
+        <div className="flex gap-4">
+          <div className="flex-1 relative group">
+            <span className="absolute left-4 top-1/2  -translate-y-1/2 text-green-500 animate-pulse text-xl">
+              {">"}
+            </span>
+            <input
+              value={inputMessage}
+              onChange={(e) => setInputMessage(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && inputMessage.trim()) {
+                  inputRef.current?.focus();
+                  //   Send the message logic here
+                }
+              }}
+              autoFocus
+              placeholder="Type your message..."
+              type="text"
+              className="w-full bg-black border border-zinc-800 focus:border-zinc-700 focus:outline-none transition-colors text-zinc-100 placeholder:text-zinc-700 py-3 pl-8 pr-4 text-sm"
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-zinc-800 text-zinc-400 px-6 text-sm font-bold hover:text-zinc-200 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+          >
+            Send
+          </button>
+        </div>
+      </div>
     </main>
   );
 };
