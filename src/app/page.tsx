@@ -102,6 +102,10 @@ export default function Home() {
           >
             🔒 Create Secure Room 🔒
           </button>
+          <div>
+            <span></span>
+            <p className="text-sm text-zinc-500">Made by Mehdi Samardan</p>
+          </div>
         </div>
       </div>
     </main>
