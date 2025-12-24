@@ -19,7 +19,7 @@ const Page = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [showCopied, setShowCopied] = useState("COPY");
-  const [timeRamaining, setTimeRemaining] = useState<number | null>(600);
+  const [timeRamaining] = useState<number | null>(600);
 
   const copyToClipboard = () => {
     const url = new URL(window.location.href);

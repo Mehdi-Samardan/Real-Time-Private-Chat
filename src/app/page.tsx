@@ -65,10 +65,24 @@ export default function Home() {
   const { mutate: createRoom } = useMutation({
     mutationFn: async () => {
       const res = await Client.room.create.post();
+      console.log("create room response", res);
 
-      if (res.status === 200) {
-        router.push(`/room/${res.data?.roomId}`);
+      // Try the typed field first, then fall back to parsing the raw response body
+      let roomId = res?.data?.roomId;
+
+      if (!roomId && res?.response) {
+        try {
+          const parsed = await res.response.clone().json();
+          roomId = parsed?.roomId;
+        } catch {
+          // ignore parse errors
+        }
+      }
+
+      if (roomId) {
+        router.push(`/room/${roomId}`);
       } else {
+        console.error("Failed to get roomId from response", res);
         alert("Failed to create room");
       }
     },
@@ -102,10 +116,6 @@ export default function Home() {
           >
             🔒 Create Secure Room 🔒
           </button>
-          <div>
-            <span></span>
-            <p className="text-sm text-zinc-500">Made by Mehdi Samardan</p>
-          </div>
         </div>
       </div>
     </main>

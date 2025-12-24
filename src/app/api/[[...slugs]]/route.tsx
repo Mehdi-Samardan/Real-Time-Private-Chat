@@ -1,5 +1,5 @@
 import { redis } from "@/app/lib/redis";
-import { Elysia, t } from "elysia";
+import { Elysia } from "elysia";
 import { nanoid } from "nanoid";
 
 const RoomTTLSeconds = 60 * 10; // 10 minutes
