@@ -1,3 +1,4 @@
 terminal.integrated.fontSize
 editor.fontSize
 1.16.00 Time
+pre
