@@ -103,7 +103,7 @@ export default function Home() {
         <div className="bg-white rounded-2xl shadow-lg p-8 space-y-6">
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-3">
-              Your Identity
+              Your Identity (saved in local storage)
             </label>
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-4 text-center text-sm font-mono text-slate-700 break-all">
               {username}
