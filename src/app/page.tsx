@@ -89,18 +89,18 @@ export default function Home() {
   });
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-50 to-slate-100">
-      <div className="w-full max-w-sm">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-6 bg-gradient-to-br from-slate-50 to-slate-100">
+      <div className="w-full max-w-sm sm:max-w-md md:max-w-lg">
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-2">
             Private Chat
           </h1>
-          <p className="text-slate-600 text-base">
+          <p className="text-slate-600 text-sm sm:text-base">
             Secure, private, self-destructing messages
           </p>
         </div>
         
-        <div className="bg-white rounded-2xl shadow-lg p-8 space-y-6">
+        <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 space-y-6">
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-3">
               Your Identity (saved in local storage)
@@ -122,7 +122,7 @@ export default function Home() {
   );
 }
 
-
+// v1
     // <main className="flex min-h-screen flex-col items-center justify-center p-4">
     //   <div className="w-full max-w-md space-y-8">
     //     <div className="text-center space-y-2">
@@ -149,6 +149,39 @@ export default function Home() {
     //         className="w-full bg-zinc-100 text-black p-3 text-sm font-bold hover:bg-zinc-50 hover:text-black transition-colors mt-2 cursor-pointer disabled:opacity-50"
     //       >
     //         🔒 Create Secure Room 🔒
+    //       </button>
+    //     </div>
+    //   </div>
+    // </main>
+
+
+    // v2
+    //   <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-50 to-slate-100">
+    //   <div className="w-full max-w-sm">
+    //     <div className="text-center mb-8">
+    //       <h1 className="text-4xl font-bold text-slate-900 mb-2">
+    //         Private Chat
+    //       </h1>
+    //       <p className="text-slate-600 text-base">
+    //         Secure, private, self-destructing messages
+    //       </p>
+    //     </div>
+        
+    //     <div className="bg-white rounded-2xl shadow-lg p-8 space-y-6">
+    //       <div>
+    //         <label className="block text-sm font-semibold text-slate-700 mb-3">
+    //           Your Identity (saved in local storage)
+    //         </label>
+    //         <div className="bg-slate-50 border border-slate-200 rounded-lg p-4 text-center text-sm font-mono text-slate-700 break-all">
+    //           {username}
+    //         </div>
+    //       </div>
+          
+    //       <button
+    //         onClick={() => createRoom()}
+    //         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200"
+    //       >
+    //         Create Room
     //       </button>
     //     </div>
     //   </div>
